@@ -1,13 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<title>Save Travel</title>
+	<meta charset="UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<title>Save Travel</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script type="text/javascript" src="js/app.js"></script>
+	<!-- for Bootstrap CSS -->
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<!-- For any Bootstrap that uses JS or jQuery-->
+	<script src="/webjars/jquery/jquery.min.js"></script>
 </head>
 <body>
 <div class="container pt-5">
@@ -19,6 +26,7 @@
 		            <th class="text-center">Expense</th>
 		            <th class="text-center">Vendor</th>
 		            <th class="text-center">Amount</th>
+		            <th class="text-center">Actions</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -27,6 +35,7 @@
 						<td class="text-center"><c:out value="${expense.expenseName}"></c:out></td>
 						<td class="text-center"><c:out value="${expense.vendor}"></c:out></td>
 						<td class="text-center">$<c:out value="${expense.amount}"></c:out></td>
+						<td class="text-center"><a href="/expenses/edit/${expense.id}">Edit</a>
 					</tr>	
 				</c:forEach>
 		    </tbody>
