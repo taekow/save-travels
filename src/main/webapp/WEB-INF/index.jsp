@@ -31,11 +31,16 @@
 		    </thead>
 		    <tbody>
 				<c:forEach var="expense" items="${expenses}">
-					<tr>
-						<td class="text-center"><c:out value="${expense.expenseName}"></c:out></td>
-						<td class="text-center"><c:out value="${expense.vendor}"></c:out></td>
-						<td class="text-center">$<c:out value="${expense.amount}"></c:out></td>
-						<td class="text-center"><a href="/expenses/edit/${expense.id}">Edit</a>
+					<tr class="align-middle text-center">
+						<td><a href="/expenses/detail/${expense.id}"><c:out value="${expense.expenseName}"></c:out></a></td>
+						<td><c:out value="${expense.vendor}"></c:out></td>
+						<td>$<c:out value="${expense.amount}"></c:out></td>
+						<td><a href="/expenses/edit/${expense.id}">Edit</a> 
+							<form action="/expenses/${expense.id}" method="post">
+								<input type="hidden" name="_method" value="delete">
+								<input type="submit" value="Delete" class="btn-danger">
+							</form>
+						</td>
 					</tr>	
 				</c:forEach>
 		    </tbody>
@@ -43,32 +48,29 @@
 	</div>
 
 	<div class="row pt-5">
-		<h1>Add an expense:</h1>
+		<h1>Add an expense</h1>
 		<form:form action="/expenses" method="post" modelAttribute="expense">
 			
 			<div>
-				<form:label path="expenseName">Expense Name: </form:label><br />
-				<form:errors path="expenseName" class="text-danger"/>
-				<form:input style="width:250px;" path="expenseName"/>
-			</div>
-		
-			<div>
-				<form:label path="vendor">Vendor: </form:label><br />
-				<form:errors path="vendor" class="text-danger"/>
-				<form:input style="width:250px;" path="vendor"/>
-			</div>
-			
-			<div>
-				<form:label path="amount">Amount: </form:label><br />
-				<form:errors path="amount" class="text-danger"/>
-				<form:input style="width:250px;" type="double" path="amount"/>
-			</div>
-			
-			<div>
-				<form:label path="description">Description: </form:label><br />
-				<form:errors path="description" class="text-danger"/>
-				<form:textarea style="width:250px;" rows="3" path="description"/>
-			</div>
+				 <form:label path="expenseName">Expense Name:</form:label><br />
+		        <form:errors path="expenseName" class="error"/>
+		        <form:input type="text" style="width:300px;" path="expenseName"/>
+		    </div>
+		    <div>
+		        <form:label path="vendor">Vendor: </form:label><br />
+				<form:errors path="vendor" class="error"/>
+				<form:input type="text" style="width:300px;" path="vendor"/>
+		    </div>
+		    <div>
+		        <form:label path="amount">Amount:</form:label><br />
+		        <form:errors path="amount" class="error"/>     
+		        <form:input type="number" style="width:300px;" step="0.01" path="amount"/>
+		    </div>
+		    <div>
+		    	<form:label path="description">Description:</form:label><br />
+		        <form:errors path="description" class="error"/>
+		        <form:textarea stype="text" style="width:300px;" rows="3" path="description"/>
+		    </div>
 			
 			<div>
 				<input type="submit" value="Submit"/>

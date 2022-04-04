@@ -31,23 +31,23 @@
 		    <input type="hidden" name="_method" value="put">
 		    <div>
 		        <form:label path="expenseName">Expense Name:</form:label><br />
-		        <form:errors path="expenseName"/>
-		        <form:input style="width:250px;" path="expenseName"/>
+		        <form:errors path="expenseName" class="error"/>
+		        <form:input type="text" style="width:300px;" path="expenseName"/>
 		    </div>
 		    <div>
 		        <form:label path="vendor">Vendor: </form:label><br />
-				<form:errors path="vendor" class="text-danger"/>
-				<form:input style="width:250px;" path="vendor"/>
+				<form:errors path="vendor" class="error"/>
+				<form:input type="text" style="width:300px;" path="vendor"/>
 		    </div>
 		    <div>
 		        <form:label path="amount">Amount:</form:label><br />
-		        <form:errors path="amount" class="text-danger"/>     
-		        <form:input style="width:250px;" type="double" path="amount"/>
+		        <form:errors path="amount" class="error"/>     
+		        <form:input type="number" style="width:300px;" step="0.01" path="amount"/>
 		    </div>
 		    <div>
 		    	<form:label path="description">Description:</form:label><br />
-		        <form:errors path="description" class="text-danger"/>
-		        <form:textarea style="width:250px;" rows="3" path="description"/>
+		        <form:errors path="description" class="error"/>
+		        <form:textarea stype="text" style="width:300px;" rows="3" path="description"/>
 		    </div>
 		    <div>
 		    	<input type="submit" value="Update">
